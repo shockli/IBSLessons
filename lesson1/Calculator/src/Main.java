@@ -14,6 +14,7 @@ public class Main {
      * @author Alexandr Pautov
      * @param a Первое дробное число.
      * @param b Второе дробное число.
+     * @param с Тип операции (1 - сложение, 2 -вычитание, 3- деление, 4-умножение )
      * @return Сумма двух дробных чисел.
      */
 
@@ -28,11 +29,35 @@ public class Main {
         String num2 = scanner.next().replaceAll(",", ".");
         checkNumber(num2);
 
-        // Вычисление суммы
-        double sum = Double.parseDouble(num1) + Double.parseDouble(num2);
+        System.out.println("Выберите тип операции:\n" +
+                "1 - сложение\n" +
+                "2 - вычитание\n" +
+                "3 - деление\n" +
+                "4 - умножение");
 
-        // Вывод результата с округлением до 4 знаков после запятой
-        System.out.printf("Сумма: %.4f%n", sum);
+        String operation = scanner.next();
+        switch (operation) {
+            case "1":
+                // Вычисление суммы
+                double sum = Double.parseDouble(num1) + Double.parseDouble(num2);
+                System.out.printf("Сумма: %.4f%n", sum);
+                break;
+            case "2":
+                // Вычитание
+                double subtraction = Double.parseDouble(num1) - Double.parseDouble(num2);
+                System.out.printf("Разность: %.4f%n", subtraction);
+                break;
+            case "3":
+                double division = Double.parseDouble(num1) / Double.parseDouble(num2);
+                System.out.printf("Результат деления: %.4f%n", division);
+                break;
+            case "4":
+                double multiplication  = Double.parseDouble(num1) * Double.parseDouble(num2);
+                System.out.printf("Результат умножения: %.4f%n", multiplication);
+                break;
+            default:
+                System.out.println("Операция не найдена!");
+        }
 
         scanner.close();
     }
