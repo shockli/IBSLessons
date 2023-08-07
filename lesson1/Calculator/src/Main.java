@@ -38,12 +38,10 @@ public class Main {
         String operation = scanner.next();
         switch (operation) {
             case "1":
-                // Вычисление суммы
                 double sum = Double.parseDouble(num1) + Double.parseDouble(num2);
                 System.out.printf("Сумма: %.4f%n", sum);
                 break;
             case "2":
-                // Вычитание
                 double subtraction = Double.parseDouble(num1) - Double.parseDouble(num2);
                 System.out.printf("Разность: %.4f%n", subtraction);
                 break;
