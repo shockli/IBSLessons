@@ -50,6 +50,5 @@ public class Main {
         if (!matcher.matches()) {
             throw new ArithmeticException("Неверный формат строки, введите значение в виде 123.4567");
         }
-
     }
 }
