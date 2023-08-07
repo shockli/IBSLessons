@@ -37,7 +37,7 @@ public class LongestWordFinder {
         Pattern pattern = Pattern.compile("\\d+");
         Matcher matcher = pattern.matcher(number);
         if (!matcher.matches()) {
-            throw new ArithmeticException("Неверный формат строки, строка может содержать только числа");
+            throw new ArithmeticException("Неверный формат строки, строка может содержать только положительные числа");
         }
     }
 }
