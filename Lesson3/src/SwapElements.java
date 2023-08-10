@@ -1,10 +1,6 @@
-import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-public class SwapExtremumElements {
+public class SwapElements {
     public static void launch() {
         int[] array = new int[20];
         Random random = new Random();
@@ -31,17 +27,16 @@ public class SwapExtremumElements {
             }
         }
 
+        System.out.println("Исходный массив:");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+
         // Поменять местами максимальный отрицательный и минимальный положительный элементы
         if (maxNegativeIndex != -1 && minPositiveIndex != -1) {
             int temp = array[maxNegativeIndex];
             array[maxNegativeIndex] = array[minPositiveIndex];
             array[minPositiveIndex] = temp;
-        }
-
-        // Вывод исходного и измененного массивов
-        System.out.println("Исходный массив:");
-        for (int num : array) {
-            System.out.print(num + " ");
         }
 
         System.out.println("\nИзмененный массив:");
