@@ -15,12 +15,26 @@ public class LongestWordFinder {
             System.out.print("Введите слово: ");
             worlList.add(scanner.next());
         }
-        System.out.printf("Самое длинное слово в массиве: %s", findLongestWord(worlList));
+
+        ArrayList<String> sortWordList = sortWordList(worlList);
+        int maxLength = sortWordList.get(0).length();
+
+        ArrayList<String> longestWords = new ArrayList<>();
+
+        for (String word : sortWordList) {
+            if (word.length() == maxLength) {
+                longestWords.add(word);
+            } else {
+                break; // Поскольку список отсортирован, можно выйти после достижения слов меньшей длины
+            }
+        }
+
+        System.out.printf("Самое длинное слово в массиве: %s", longestWords.toString().replaceAll("\\[|\\]", ""));
         scanner.close();
 
     }
 
-    public static String findLongestWord(ArrayList<String> words) {
+    public static ArrayList<String> sortWordList(ArrayList<String> words) {
         if (words == null || words.isEmpty()) {
             return null;
         }
@@ -30,7 +44,7 @@ public class LongestWordFinder {
                 return Integer.compare(s2.length(), s1.length());
             }
         });
-        return words.get(0);
+        return words;
     }
 
     public static void isInteger(String number){
