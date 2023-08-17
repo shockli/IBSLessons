@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 public interface BasicOperations {
 
     default double getDivision(String number1, String number2){
-        return  Double.parseDouble(number1) - Double.parseDouble(number2);
+        return  Double.parseDouble(number1) / Double.parseDouble(number2);
     }
 
     default double getSum(String number1, String number2){
@@ -16,7 +16,7 @@ public interface BasicOperations {
     }
 
     default double getMultiplication(String number1, String number2){
-        return  Double.parseDouble(number1) * Double.parseDouble(number2);
+        return Double.parseDouble(number1) * Double.parseDouble(number2);
     }
 
     static void checkIsNumber(String number){

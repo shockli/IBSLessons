@@ -13,40 +13,20 @@ public class Calculator implements BasicOperations {
      * @return Сумма двух дробных чисел.
      */
 
-    public void launch(String[] args) throws Exception{
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Введите первое дробное число: ");
-        String num1 =  scanner.next().replaceAll(",", ".");
-        BasicOperations.checkIsNumber(num1);
-
-        System.out.print("Введите второе дробное число: ");
-        String num2 = scanner.next().replaceAll(",", ".");
-        BasicOperations.checkIsNumber(num2);
-
-        System.out.println("Выберите тип операции:\n" +
-                "1 - сложение\n" +
-                "2 - вычитание\n" +
-                "3 - деление\n" +
-                "4 - умножение");
-
-        String operation = scanner.next();
+    public double calculate(String num1, String num2, String operation) throws Exception {
         switch (operation) {
             case "1":
-                System.out.printf("Сумма: %.4f%n", getSum(num1, num2));
-                break;
+                return getSum(num1, num2);
             case "2":
-                System.out.printf("Разность: %.4f%n", getSubtraction(num1, num2));
-                break;
+                return getSubtraction(num1, num2);
             case "3":
-                System.out.printf("Результат деления: %.4f%n", getDivision(num1, num2));
-                break;
+                return getDivision(num1, num2);
             case "4":
-                System.out.printf("Результат умножения: %.4f%n", getMultiplication(num1, num2));
-                break;
+                return getMultiplication(num1, num2);
             default:
-                System.out.println("Операция не найдена!");
+                throw new IllegalArgumentException("Неподдерживаемая операция: " + operation);
         }
-        scanner.close();
     }
+
 }
