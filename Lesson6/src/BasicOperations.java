@@ -4,7 +4,12 @@ import java.util.regex.Pattern;
 public interface BasicOperations {
 
     default double getDivision(String number1, String number2){
-        return  Double.parseDouble(number1) / Double.parseDouble(number2);
+        double result = Double.parseDouble(number1)  / Double.parseDouble(number2);
+        if (Double.isFinite(result)) {
+            return  result;
+        } else {
+            throw new ArithmeticException("деление на ноль.");
+        }
     }
 
     default double getSum(String number1, String number2){
@@ -30,7 +35,7 @@ public interface BasicOperations {
         Pattern pattern = Pattern.compile("^-?\\d+(\\.\\d+)?$");
         Matcher matcher = pattern.matcher(number);
         if (!matcher.matches()) {
-            throw new NumberFormatException();
+            throw new NumberFormatException("Неверный формат строки, введите значение в виде 123.4567");
         }
     }
 }

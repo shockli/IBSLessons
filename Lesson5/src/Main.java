@@ -10,14 +10,13 @@ public class Main {
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader(fileName));
-            String line;
             StringBuilder content = new StringBuilder();
 
             //Прочитать слова из файла.
+            String line;
             while ((line = reader.readLine()) != null) {
                 content.append(line).append(" ");
             }
-
             reader.close();
 
             String[] words = content.toString().split(" ");
@@ -26,7 +25,6 @@ public class Main {
              Arrays.sort(words);
 
             TreeMap<String, Integer> wordCount = new TreeMap<>();
-
             //Посчитать сколько раз каждое слово встречается в файле
             for (String word : words) {
                 word = word.toLowerCase(); // Убрать регистр для учета слов без учета регистра
@@ -49,9 +47,7 @@ public class Main {
                     mostCommonWord += ", " + word;
                 }
             }
-
             System.out.println("Самое частое слово: " + mostCommonWord + ", количество повторений: " + maxCount);
-
         } catch (IOException e) {
             e.printStackTrace();
         }
