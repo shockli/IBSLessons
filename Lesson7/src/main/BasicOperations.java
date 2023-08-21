@@ -1,10 +1,20 @@
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+/**
+ * Интерфейс, предоставляющий базовые арифметические операции и проверку числовых строк.
+ */
 public interface BasicOperations {
 
-    default double getDivision(String number1, String number2){
-        double result = Double.parseDouble(number1)  / Double.parseDouble(number2);
+    /**
+     * Выполняет деление двух чисел.
+     *
+     * @param number1 Первое число.
+     * @param number2 Второе число.
+     * @return Результат деления.
+     * @throws ArithmeticException Если происходит деление на ноль.
+     */
+    default double getDivision(double number1, double number2){
+        double result = number1  / number2;
         if (Double.isFinite(result)) {
             return  result;
         } else {
@@ -12,18 +22,45 @@ public interface BasicOperations {
         }
     }
 
-    default double getSum(String number1, String number2){
-        return  Double.parseDouble(number1) + Double.parseDouble(number2);
+    /**
+     * Выполняет сложение двух чисел.
+     *
+     * @param number1 Первое число.
+     * @param number2 Второе число.
+     * @return Результат сложения.
+     */
+    default double getSum(double number1, double number2){
+        return  number1 + number2;
     }
 
-    default double getSubtraction(String number1, String number2){
-        return  Double.parseDouble(number1) - Double.parseDouble(number2);
+    /**
+     * Выполняет вычитание двух чисел.
+     *
+     * @param number1 Первое число.
+     * @param number2 Второе число.
+     * @return Результат вычитания.
+     */
+    default double getSubtraction(double number1, double number2){
+        return number1 - number2;
     }
 
-    default double getMultiplication(String number1, String number2){
-        return Double.parseDouble(number1) * Double.parseDouble(number2);
+    /**
+     * Выполняет умножение двух чисел.
+     *
+     * @param number1 Первое число.
+     * @param number2 Второе число.
+     * @return Результат умножения.
+     */
+    default double getMultiplication(double number1, double number2){
+        return number1 * number2;
     }
 
+    /**
+     * Проверяет, является ли переданная строка числовым значением.
+     *
+     * @param number Строка для проверки.
+     * @throws NumberFormatException Если строка не соответствует числовому формату.
+     */
     static void checkIsNumber(String number){
         /*
             ^ - начало строки.

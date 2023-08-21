@@ -9,12 +9,12 @@ public class CalculatorTest {
         BasicOperations basicOps = new Calculator();
 
         // Тест деления
-        double result = basicOps.getDivision("10", "2");
+        double result = basicOps.getDivision(10, 2);
         assertEquals(5.0, result, 0.0001); // 3-й аргумент — это дельта для сравнения значений с плавающей запятой.
 
         // Тест деления на ноль
         try {
-            basicOps.getDivision("10", "0");
+            basicOps.getDivision(10, 0);
             fail("Должна быть выброшена ошибка - деление на ноль.");
         } catch (ArithmeticException e) {
             assertEquals("деление на ноль.", e.getMessage());
@@ -25,7 +25,7 @@ public class CalculatorTest {
     // Тест суммы
     public void testGetSum() {
         BasicOperations basicOps = new Calculator();
-        double result = basicOps.getSum("5.5", "3.5");
+        double result = basicOps.getSum(5.5, 3.5);
         assertEquals(9.0, result, 0.0001);
     }
 
@@ -33,7 +33,7 @@ public class CalculatorTest {
     // Тест вычитания
     public void testGetSubtraction() {
         BasicOperations basicOps = new Calculator();
-        double result = basicOps.getSubtraction("8", "4");
+        double result = basicOps.getSubtraction(8, 4);
         assertEquals(4.0, result, 0.0001);
     }
 
@@ -41,7 +41,7 @@ public class CalculatorTest {
     // Тест умножения
     public void testGetMultiplication() {
         BasicOperations basicOps = new Calculator();
-        double result = basicOps.getMultiplication("2.5", "3");
+        double result = basicOps.getMultiplication(2.5, 3);
         assertEquals(7.5, result, 0.0001);
     }
 
@@ -57,7 +57,7 @@ public class CalculatorTest {
 
         Calculator calculator = new Calculator();
         try {
-            calculator.calculate("abc", "3", "5");
+            calculator.calculate("8", "3", "5");
             fail("Должна быть выброшена ошибка - неподдерживаемая операция:");
         } catch (IllegalArgumentException e) {
             assertTrue(e.getMessage().contains("неподдерживаемая операция:"));
