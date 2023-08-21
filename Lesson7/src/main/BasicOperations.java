@@ -14,9 +14,8 @@ public interface BasicOperations {
      * @throws ArithmeticException Если происходит деление на ноль.
      */
     default double getDivision(double number1, double number2){
-        double result = number1  / number2;
-        if (Double.isFinite(result)) {
-            return  result;
+        if (number2 != 0) {
+            return number1  / number2;
         } else {
             throw new ArithmeticException("деление на ноль.");
         }
